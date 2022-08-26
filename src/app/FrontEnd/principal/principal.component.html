@@ -1,0 +1,18 @@
+<form class="principal">
+  <button mat-raised-button (click)="getSentMessages()"> Enviados </button>
+  <button mat-raised-button (click)="getReceivedMessages()"> Recibidos</button>
+  <button mat-raised-button (click)="nuevoMensaje()"> Nuevo Mensaje </button>
+
+  <table mat-table [dataSource]="data" class="mat-elevation-z8">
+    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+  </table>
+
+  <button class="cs" mat-raised-button type="button"(click)="salir()">Cerrar Sesion</button>
+</form>
+ 

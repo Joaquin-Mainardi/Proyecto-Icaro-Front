@@ -1,0 +1,67 @@
+<form [formGroup]="miformulario" (ngSubmit)="guardar()"method="post" class="example-form">
+  <h2> Acceder</h2>
+  <table class="example-full-width" cellspacing="0" required> <tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput type="text" formControlName="username"> <br>
+        <p *ngIf="campoValido('username')">
+          Este campo es requerido
+        </p>
+     </mat-form-field></td>
+</tr></table>
+
+
+<table class="example-full-width" cellspacing="0" required> <tr>
+  <td>
+    <mat-form-field class="example-full-width" appearance="fill" >
+      <mat-label>Ingrese su contraseña</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"  > <br>
+      <p *ngIf="campoValido('password')">
+        Este campo es requerido, debe tener al menos 5 caracteres
+      </p>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </td>
+</tr></table>
+
+<button mat-raised-button class="button"type="submit"(click)="Acceder()">Ingresar</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="access">
+    <form class="custom-form" method="post">
+      <h1>Access</h1>
+<input
+      type="text"
+      [(ngModel)]="username"
+      name="text"
+      placeholder="Nombre de Usuario"
+      required="required"
+    />
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Contraseña"
+        required="required"
+      />
+
+      <button href="../principal/" type="submit" id="submit" name="submit" (click)="Acceder()">Ingresar</button>
+    </form>
+  </div> -->

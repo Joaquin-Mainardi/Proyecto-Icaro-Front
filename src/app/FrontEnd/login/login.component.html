@@ -1,0 +1,87 @@
+
+<div class="form"> 
+   <form  [formGroup]="miformulario"(ngSubmit)="guardar()" method="post" class="example-form">
+  <h2>Formulario de Registro</h2>
+  <table class="example-full-width"cellspacing="0" required><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill" >
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="firstName" required>
+        <span *ngIf="campoValido('firstName')">
+          Este campo es requerido 
+        </span>
+      </mat-form-field></td>
+  </tr></table>
+
+
+
+  <table class="example-full-width" cellspacing="0" required> <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill" >
+          <mat-label>Apellido</mat-label>
+          <input matInput type="text" formControlName="lastName"  > <br>
+          <span *ngIf="campoValido('lastName')">
+            Este campo es requerido 
+          </span>
+        </mat-form-field></td> 
+  </tr></table>
+
+
+
+  <table class="example-full-width" cellspacing="0" required> <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nombre de usuario</mat-label>
+          <input matInput type="text" formControlName="username"> <br>
+          <span *ngIf="campoValido('username')">
+            Este campo es requerido 
+          </span>
+       </mat-form-field></td>
+  </tr></table>
+
+
+
+  <table class="example-full-width" cellspacing="0" required> <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill" >
+          <mat-label>Ingrese su contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" id="password"  > <br>
+          <span *ngIf="campoValido('password')">
+            Minimo 6 caracteres
+          </span>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+  </tr></table>
+
+
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ciudad</mat-label>
+      <input matInput formControlName="city"><br>
+      <span *ngIf="campoValido('city')">
+        Este campo es requerido 
+      </span>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>País</mat-label>
+      <input matInput formControlName="country" ><br>
+      <span *ngIf="campoValido('country')">
+        Este campo es requerido 
+      </span>
+    </mat-form-field></td>
+  </tr></table>
+
+  <div class="login-box">
+    ¿Tienes una Cuenta? <a href="../access">Entrar</a>
+  </div>
+
+
+  <div class="example-button-row">
+  <button mat-raised-button class="button"type="submit"(click)="registerUser()">Registrarse</button>
+  </div>
+
+
+  </form>
+</div>
+
