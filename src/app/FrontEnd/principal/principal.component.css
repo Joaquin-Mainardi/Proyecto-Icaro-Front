@@ -1,14 +1,19 @@
 table {
   margin-top: 50px;
     width: 100%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
   }
 
   
 button {
     margin-top: 25px;
     margin: 16px 8px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
   }
   
 .cs{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   margin-top: 250px;
 }

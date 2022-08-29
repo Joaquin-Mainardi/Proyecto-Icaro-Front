@@ -8,8 +8,9 @@ import { HomeComponent } from "./FrontEnd/home/home.component";
 import { MessagesComponent } from "./FrontEnd/messages/messages.component";
 
 const routes: Routes = [
-  { path: "", component: LoginComponent, pathMatch: "full" },
+  { path: "register", component: LoginComponent, pathMatch: "full" },
   { path: "login", component: AccessComponent, pathMatch: "full" },
+  { path: "", component: LoginComponent, pathMatch: "full" },
   { path: 'principal', component: PrincipalComponent, pathMatch:'full'},
   { path: 'home', component: HomeComponent, pathMatch:'full'},
   { path: 'messages', component: MessagesComponent, pathMatch:'full'},

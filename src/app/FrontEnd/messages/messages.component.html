@@ -1,6 +1,6 @@
-<div class="mensaje">
-  <form [formGroup]="mensaje" class="example-form" method="post">
-    <h2>Enviar Mensaje</h2>
+  <div class="mensaje">
+  <form [formGroup]="mensaje" (ngSubmit)="sendMsg()" class="example-form" method="post">
+    <h2 class="title">Enviar Mensaje</h2>
     <table class="example-full-width"cellspacing="0" required><tr>
         <td><mat-form-field class="example-full-width" appearance="fill" >
           <mat-label>Destinatario</mat-label>
@@ -13,13 +13,16 @@
         <td><mat-form-field class="example-full-width" appearance="fill" >
           <mat-label>Mensaje</mat-label>
           <textarea matInput formControlName="text" name="text" id="text"  rows="6"></textarea>
-
         </mat-form-field></td>
     </tr></table>
-
+    <ng-container *ngIf="this.mensaje.value.text">
+      <p class="parrafoCaracteres">Cantidad de caracteres restantes {{144-this.mensaje.value.text.length}}</p>
+    </ng-container>
     <div class="example-button-row">
         <button mat-raised-button class="button"type="submit" (click)="postMessage()">Enviar</button>
     </div>
 
 </form>
-</div>
+</div>  
+
+

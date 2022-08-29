@@ -14,12 +14,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginComponent implements OnInit {
 
   hide = true
-  firstName!: string;
-  lastName!: string;
+  firstname!: string;
+  lastname!: string;
   password!:string;
   username!: string;
   city!:string;
   country!:string;
+  miform: any;
+  durationInSeconds = 5;
 
 
 
@@ -31,38 +33,39 @@ export class LoginComponent implements OnInit {
 
 
   miformulario:FormGroup=this.fb.group({
-    'firstName': ['',[Validators.required]],
-    'lastName': ['',[Validators.required]],
+    'firstname': ['',[Validators.required]],
+    'lastname': ['',[Validators.required]],
     'username': ['',[Validators.required]],
     'password': ['',[Validators.required,Validators.minLength(6),]],
     'country': ['',[Validators.required]],
     'city': ['',[Validators.required]],
   })
 
-
+  //validaciones
   campoValido(campo:string){
-    return this.miformulario.controls[campo].errors && this.miformulario.controls[campo].touched
-  }
-
-  guardar(){
-
-    if (this.miformulario.invalid){
-    this.miformulario.markAllAsTouched()
-    this.miformulario.reset()
-    }
-  }
-
-
-
+    return this.miformulario.controls[campo].errors && this.miformulario.controls[campo].touched }
 
    registerUser(){
-    const user = {username: this.miformulario.value.username, firstName: this.miformulario.value.firstName, lastName: this.miformulario.value.lastName, password:this.miformulario.value.password, country:this.miformulario.value.country, city:this.miformulario.value.city};
+    const user = {username: this.miformulario.value.username, firstname: this.miformulario.value.firstname, lastname: this.miformulario.value.lastname, password:this.miformulario.value.password, country:this.miformulario.value.country, city:this.miformulario.value.city};
     console.log(this.miformulario.value)
     this.userService.registerUser(user).subscribe(data =>{
       this.userService.setToken(data.token);
       this.router.navigateByUrl('/principal');
     })
   }
+  
+  guardar(){
 
+    if (this.miformulario.invalid){
+    this.miformulario.markAllAsTouched()
+    this.miformulario.reset()
+    this.router.navigateByUrl('/principal')
+    }
+  }
+  
+   openSnackBar() { 
+         this.snackBar.open('Usuario registrado con exito', 'cerrar'),{
+          duration: this.durationInSeconds * 1000,
+        }}
 }
 

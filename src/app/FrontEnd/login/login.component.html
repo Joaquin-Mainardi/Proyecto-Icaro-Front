@@ -1,12 +1,12 @@
 
 <div class="form"> 
    <form  [formGroup]="miformulario"(ngSubmit)="guardar()" method="post" class="example-form">
-  <h2>Formulario de Registro</h2>
+  <h2 class="title">Formulario de Registro</h2>
   <table class="example-full-width"cellspacing="0" required><tr>
       <td><mat-form-field class="example-full-width" appearance="fill" >
         <mat-label>Nombre</mat-label>
-        <input matInput type="text" formControlName="firstName" required>
-        <span *ngIf="campoValido('firstName')">
+        <input matInput type="text" formControlName="firstname" required>
+        <span *ngIf="campoValido('firstname')">
           Este campo es requerido 
         </span>
       </mat-form-field></td>
@@ -17,8 +17,8 @@
   <table class="example-full-width" cellspacing="0" required> <tr>
       <td><mat-form-field class="example-full-width" appearance="fill" >
           <mat-label>Apellido</mat-label>
-          <input matInput type="text" formControlName="lastName"  > <br>
-          <span *ngIf="campoValido('lastName')">
+          <input matInput type="text" formControlName="lastname"  > <br>
+          <span *ngIf="campoValido('lastname')">
             Este campo es requerido 
           </span>
         </mat-form-field></td> 
@@ -73,15 +73,14 @@
   </tr></table>
 
   <div class="login-box">
-    ¿Tienes una Cuenta? <a href="../access">Entrar</a>
+    ¿Tienes una Cuenta? <a href="../login">Entrar</a>
   </div>
 
 
   <div class="example-button-row">
-  <button mat-raised-button class="button"type="submit"(click)="registerUser()">Registrarse</button>
-  </div>
+  <button mat-raised-button class="button"type="submit"(click)="registerUser()" (click)="openSnackBar()">Registrarse</button>
 
-
+ </div>
   </form>
 </div>
 

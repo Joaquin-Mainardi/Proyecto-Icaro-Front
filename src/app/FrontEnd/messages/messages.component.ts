@@ -11,7 +11,6 @@ import { UsersService } from 'src/app/Users/users.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  // senderId !: number;
   receiverId!: string;
   text!: string;
   
@@ -25,10 +24,18 @@ export class MessagesComponent implements OnInit {
     'receiverId': ['',[Validators.required]],
     'text': ['',[Validators.required, Validators.maxLength(144)]],
   }) 
+  validar(campo: string) {
+    return this.mensaje.controls[campo]?.errors && this.mensaje.controls[campo]?.touched
+  }
+  sendMsg() {
+    // si el formulario tiene errores lo marca y sale
+    if (this.mensaje.invalid) {
+      this.mensaje.markAllAsTouched();
+      return;
+    }}
 
   postMessage(){
     const mensaje = { receiverId: this.mensaje.value.receiverId, text: this.mensaje.value.text}
-    // this.mensaje.value.text = "hola"
     console.log(this.mensaje.value)
     this.userService.postMessage(mensaje).subscribe(data =>{
       this.userService.setToken(data.token);
@@ -37,5 +44,4 @@ export class MessagesComponent implements OnInit {
 
 
 )}}
-
 

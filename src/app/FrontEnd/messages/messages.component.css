@@ -1,4 +1,7 @@
+.title{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
+}
 
 .example-form {
   min-width: 150px;
@@ -7,16 +10,20 @@
   padding-top:50px;
   text-align: center;
   padding-left: 500px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 
 }
 
 .example-full-width {
   width: 100%;
-  
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
 
 td {
   padding-right: 3px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 
@@ -26,10 +33,12 @@ td {
   max-width: 500px;
   width: 100%;
   padding-right: 8px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 .example-button-row a {
 margin-right: 8px;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 
