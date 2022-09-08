@@ -13,6 +13,7 @@ import { UsersService } from 'src/app/Users/users.service';
 export class MessagesComponent implements OnInit {
   receiverId!: string;
   text!: string;
+  senderId!:string
   
   ngOnInit(): void {
     this.userService.postMessage
@@ -23,21 +24,20 @@ export class MessagesComponent implements OnInit {
   mensaje: FormGroup = this.fb.group ({
     'receiverId': ['',[Validators.required]],
     'text': ['',[Validators.required, Validators.maxLength(144)]],
+    'senderId': ['',[ Validators.required]]
   }) 
   validar(campo: string) {
     return this.mensaje.controls[campo]?.errors && this.mensaje.controls[campo]?.touched
   }
   sendMsg() {
-    // si el formulario tiene errores lo marca y sale
     if (this.mensaje.invalid) {
       this.mensaje.markAllAsTouched();
       return;
     }}
 
   postMessage(){
-    const mensaje = { receiverId: this.mensaje.value.receiverId, text: this.mensaje.value.text}
-    console.log(this.mensaje.value)
-    this.userService.postMessage(mensaje).subscribe(data =>{
+    const mensaje = { receiverId: this.mensaje.value.receiverId, senderId: this.mensaje.value.senderId, text: this.mensaje.value.text}
+      this.userService.postMessage(mensaje).subscribe(data =>{
       this.userService.setToken(data.token);
       this.router.navigateByUrl('/principal');
   }

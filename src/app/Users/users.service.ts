@@ -3,9 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { CookieService } from 'ngx-cookie-service';
 import { UsuariosRx } from "../usuarios-rx";
-import { NewMessage } from "../new-message";
-// import { UsuariosLogin } from "../usuarios-login";
-
 
 @Injectable({
   providedIn: "root"
@@ -24,14 +21,9 @@ export class UsersService {
     return this.http.post("http://localhost:3000/api/login", user);
 }
 
-  postMessage(mensaje: { receiverId:string, text:string}): Observable<any>{
+  postMessage(mensaje: { receiverId:string, text:string, senderId:string}): Observable<any>{
     return this.http.post("http://localhost:3000/api/users/:username/messages", mensaje)
 }
-
-// createNewMessage(username: string, newMessage: any) {
-//   return this.http.post<NewMessage[]>(`api/users/${username}/messages/`, newMessage)
-// }
-
 
 setToken(token: any) {
   this.cookies.set("token", token);

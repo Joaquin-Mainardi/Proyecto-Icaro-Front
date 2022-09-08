@@ -54,8 +54,14 @@ export class AccessComponent implements OnInit {
             duration: this.durationInSeconds * 1000,
             }
           }
-  ngOnInit(): void {
-            }
-          }
+
+          
+  ngOnInit(): void {} 
+          
+          
+          
+          
+}
+
 
 
