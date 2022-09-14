@@ -36,16 +36,17 @@ export class AccessComponent implements OnInit {
   guardar() {
     if (this.miformularioLogin.invalid) {
         this.miformularioLogin.markAllAsTouched();
-        this.router.navigateByUrl('/principal');
       return;
-    }}
+    }
+    this.router.navigateByUrl('/principal');
+}
 
     Acceder(){
       const user = { username:this.miformularioLogin.value.username, password:this.miformularioLogin.value.password,};
       console.log(this.miformularioLogin.value)
       this.userService.Acceder(user).subscribe(data =>{
         this.userService.setToken(data.token);
-        this.router.navigateByUrl('/principal');
+        
       })
     }
 

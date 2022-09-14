@@ -13,10 +13,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {Remitente: "Joaquin Mainardi", Destinatario: 'Ramiro Roman', Fecha:14_05_20017, Mensaje: ''},
-  {Remitente: "Joaquin Mainardi", Destinatario: 'Tomas Pozzetti', Fecha: 4.0026, Mensaje: ''},
-  {Remitente: "Joaquin Mainardi ", Destinatario: 'Juan Cosio', Fecha: 6.941, Mensaje: ''},
-  {Remitente: "Joaquin Mainardi", Destinatario: 'Mateo Colombiano', Fecha: 9.0122, Mensaje: ''},
+
 ];
 
 @Component({
